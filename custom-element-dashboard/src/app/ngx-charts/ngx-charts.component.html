@@ -1,0 +1,168 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">content_copy</i>
+                    </div>
+                    <p class="card-category">Used Space</p>
+                    <h3 class="card-title">49/50
+                        <small>GB</small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons text-danger">warning</i>
+                        <a href="#pablo">Get More Space...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">store</i>
+                    </div>
+                    <p class="card-category">Revenue</p>
+                    <h3 class="card-title">$34,245</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">info_outline</i>
+                    </div>
+                    <p class="card-category">Fixed Issues</p>
+                    <h3 class="card-title">75</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">local_offer</i> Tracked from Github
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <p class="card-category">Followers</p>
+                    <h3 class="card-title">+245</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  
+<div class="row mt-5 chart-diplay">
+  <div class="col-lg-4 col-md-4 col-sm-6 p-5">
+      <app-line-chart></app-line-chart>
+        
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6 p-5">
+  <app-pie-chart
+        [pieChartData]=single
+        [pieColorSchema]=colorScheme
+        [pieShowLegend]=showLegend
+        [pieGradient]=gradient>
+    </app-pie-chart>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6  p-5">
+      <div style="width: 100%; height:300px;">
+          <ngx-charts-bar-vertical
+          [scheme]="colorScheme"
+          [results]="single"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          (select)="onSelect($event)">
+        </ngx-charts-bar-vertical>
+        </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6  p-5">
+          <div class="ctar" style="width: 100%; height:300px;">
+              <ngx-charts-heat-map
+              [scheme]="colorScheme"
+              [results]="multi"
+              [legend]="showLegend"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              (select)="onSelect($event)">
+          </ngx-charts-heat-map>
+      </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6  p-5">
+          <div style="width: 100%; height:300px;">
+                  <ngx-charts-tree-map
+                  [scheme]="colorScheme"
+                  [results]="single"
+                  (select)="onSelect($event)">
+                </ngx-charts-tree-map>
+      </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-6  p-5">
+      <div style="width: 100%; height:300px;">
+          <ngx-charts-bar-horizontal-stacked
+          [scheme]="colorScheme"
+          [results]="data"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          (select)="onSelect($event)">
+          <ng-template #tooltipTemplate let-model="model">
+            <span class="tooltip-label">{{model.series.startsWith('sam') ? 'sam' : model.series}} / {{model.name}}</span>
+            <span class="tooltip-val">{{model.value}}</span>
+          </ng-template>
+        </ngx-charts-bar-horizontal-stacked>
+  </div>
+</div>
+</div>
+  </div> 
+</div>
+
+
+
+
+<!-- 
+<div>
+  <h2>Custom Chart</h2>
+  <app-customchart
+    [view]="[600,300]"
+    [results]="single">
+  </app-customchart>
+</div>   -->
+
