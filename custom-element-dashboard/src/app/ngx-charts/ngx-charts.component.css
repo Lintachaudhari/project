@@ -1,5 +1,7 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
+
 
 .card-stats .card-header.card-header-icon, .card-stats .card-header.card-header-text {
     text-align: right;

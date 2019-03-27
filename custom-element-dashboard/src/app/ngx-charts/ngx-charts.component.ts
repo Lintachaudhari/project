@@ -46,7 +46,6 @@ export class NgxChartsComponent implements OnInit {
   ngOnInit() {
     
     $(function() {
-
       var d = dragula({
         invalid: function(el, target) {
           return $(el).hasClass('ui-resizable-handle')

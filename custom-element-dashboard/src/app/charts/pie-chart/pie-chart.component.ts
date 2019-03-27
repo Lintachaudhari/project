@@ -12,7 +12,7 @@ export class PieChartComponent implements OnInit {
   @Input() pieColorSchema
   @Input() pieShowLegend
   @Input() pieGradient
-  
+  view: any[] = [450, 400];
   constructor() { }
 
   ngOnInit() {

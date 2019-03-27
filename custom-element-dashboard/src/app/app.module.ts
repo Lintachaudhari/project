@@ -7,25 +7,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxChartsComponent } from './ngx-charts/ngx-charts.component';
 import { createCustomElement } from '@angular/elements';
-import { ChartComponent } from './chart/chart.component';
 import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { VerticleBarChartComponent } from './charts/verticle-bar-chart/verticle-bar-chart.component';
 import { HeatMapComponent } from './charts/heat-map/heat-map.component';
 import { TreeMapComponent } from './charts/tree-map/tree-map.component';
 import { HorizontalBarChartComponent } from './charts/horizontal-bar-chart/horizontal-bar-chart.component';
+import { LayoutComponent } from './layout/layout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NgxChartsComponent,
-    ChartComponent,
     PieChartComponent,
     LineChartComponent,
     VerticleBarChartComponent,
     HeatMapComponent,
     TreeMapComponent,
-    HorizontalBarChartComponent
+    HorizontalBarChartComponent,
+    LayoutComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { HorizontalBarChartComponent } from './charts/horizontal-bar-chart/horiz
     NgxChartsModule
   ],
   providers: [],
-  entryComponents: [NgxChartsComponent]
+  entryComponents: [NgxChartsComponent,LayoutComponent]
 })
 export class AppModule { 
   constructor(private injector: Injector){}
@@ -42,7 +44,8 @@ export class AppModule {
   ngDoBootstrap() {
 
     const elements: any[]= [
-      [NgxChartsComponent,'ngx-charts']
+      [NgxChartsComponent, 'ngx-charts'],
+      [LayoutComponent,'app-layout']
     ];
 
     for (const [compnent, name] of elements){
@@ -50,6 +53,5 @@ export class AppModule {
       customElements.define(name,el);
     }
  
-
   }
 }

@@ -9,7 +9,7 @@ import { data } from './line-data'
 export class LineChartComponent implements OnInit {
 
   data:any[];
-  view: any[] = [700, 400];
+  view: any[] = [450, 400];
 
   // options
   showXAxis = true;
